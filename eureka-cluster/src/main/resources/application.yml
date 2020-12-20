@@ -1,0 +1,58 @@
+---
+server:
+  port: 2001
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2001.yuntian.com
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}::@project.version@
+  client:
+    register-with-eureka: true # ⾃⼰就是服务不需要注册⾃⼰
+    fetch-registry: true #⾃⼰就是服务不需要从Eureka Server获取服务信息,默认为true，置为false
+    service-url:
+      defaultZone: http://eureka2002.yuntian.com:2002/eureka/,http://eureka2003.yuntian.com:2003/eureka/
+spring:
+  profiles: eureka2001
+  application:
+    name: eureka-server
+---
+server:
+  port: 2002
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2002.yuntian.com
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}::@project.version@
+
+  client:
+    register-with-eureka: true # ⾃⼰就是服务不需要注册⾃⼰
+    fetch-registry: true #⾃⼰就是服务不需要从Eureka Server获取服务信息,默认为true，置为false
+    service-url:
+      defaultZone: http://eureka2001.yuntian.com:2001/eureka/,http://eureka2003.yuntian.com:2003/eureka/
+       #⾃定义实例显示格式，加上版本号，便于多版本管理，注意是ip-address，早期版本是ipAddress
+
+
+spring:
+  profiles: eureka2002
+  application:
+    name: eureka-server
+---
+server:
+  port: 2003
+  servlet:
+    context-path: /
+eureka:
+  instance:
+    hostname: eureka2003.yuntian.com
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}::@project.version@
+  client:
+    register-with-eureka: true # ⾃⼰就是服务不需要注册⾃⼰
+    fetch-registry: true #⾃⼰就是服务不需要从Eureka Server获取服务信息,默认为true，置为false
+    service-url:
+      defaultZone: http://eureka2001.yuntian.com:2001/eureka/,http://eureka2002.yuntian.com:2002/eureka/
+spring:
+  profiles: eureka2003
+  application:
+    name: eureka-server
