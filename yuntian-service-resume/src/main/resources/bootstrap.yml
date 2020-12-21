@@ -17,6 +17,19 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
+
+  cloud:
+    # config客户端配置,和ConfigServer通信，并告知ConfigServer希望获取的配置信息在哪个文件中
+    config:
+      name: lagou-service-resume  #配置文件名称
+      profile: dev  #后缀名称
+      label: master #分支名称
+      uri: http://localhost:9006    #ConfigServer配置中心地址
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 #注册到Eureka服务中心
 eureka:
   client:
@@ -56,6 +69,18 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl  #避免将驼峰命名转换为下划线命名
+  cloud:
+    # config客户端配置,和ConfigServer通信，并告知ConfigServer希望获取的配置信息在哪个文件中
+    config:
+      name: lagou-service-resume  #配置文件名称
+      profile: dev  #后缀名称
+      label: master #分支名称
+      uri: http://localhost:9006    #ConfigServer配置中心地址
+  rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+      username: guest
+      password: guest
 #注册到Eureka服务中心
 eureka:
   client:

@@ -9,28 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yuntian-service-resume</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>yuntian-cloud-configserver-9006</artifactId>
 
-    <!--功能接口：根据用户id查询该用户默认简历的公开状态-->
+
     <dependencies>
-        <dependency>
-            <groupId>com.yuntian</groupId>
-            <artifactId>yuntian-service-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!--eureka client 客户端依赖引入-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
-
-<!--   &lt;!&ndash;Config 客户端依赖&ndash;&gt;  1.接收配置更新消息 2.从configServer读取配置信息-->
+        <!--config配置中心服务端  配置服务器，提供查询配置服务 推送配置更新消息到消息队列-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-client</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
