@@ -2,7 +2,7 @@ server:
   port: 9001
 Spring:
   application:
-    name: lagou-cloud-hystrix-turbine
+    name: yuntian-cloud-hystrix-turbine
 eureka:
   client:
     serviceUrl: # eureka server的路径
